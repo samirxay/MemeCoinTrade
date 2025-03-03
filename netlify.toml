@@ -1,10 +1,16 @@
 [build]
   command = "pip install flask flask-sqlalchemy gunicorn email-validator psycopg2-binary serverless-wsgi"
   functions = "netlify/functions"
+  publish = "static"
 
 [functions]
   directory = "netlify/functions"
   node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/static/*"
+  to = "/static/:splat"
+  status = 200
 
 [[redirects]]
   from = "/*"

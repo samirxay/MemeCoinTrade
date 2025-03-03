@@ -29,6 +29,8 @@ A lightweight memecoin discussion forum with a dark/purple theme. Built with Fla
 5. Deploy settings will be automatically configured by netlify.toml
 6. Click "Deploy site"
 
+Note: Static files (CSS, JS, images) are served directly by Netlify for better performance.
+
 ## Development Setup
 1. Clone the repository
 2. Make sure you have Python 3.11+ installed
