@@ -1,5 +1,5 @@
 [build]
-  command = "pip install -r requirements.txt"
+  command = "pip install flask flask-sqlalchemy gunicorn email-validator psycopg2-binary serverless-wsgi"
   functions = "netlify/functions"
 
 [functions]

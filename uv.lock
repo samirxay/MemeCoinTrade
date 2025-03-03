@@ -276,6 +276,7 @@ dependencies = [
     { name = "flask-sqlalchemy" },
     { name = "gunicorn" },
     { name = "psycopg2-binary" },
+    { name = "serverless-wsgi" },
 ]
 
 [package.metadata]
@@ -285,6 +286,19 @@ requires-dist = [
     { name = "flask-sqlalchemy", specifier = ">=3.1.1" },
     { name = "gunicorn", specifier = ">=23.0.0" },
     { name = "psycopg2-binary", specifier = ">=2.9.10" },
+    { name = "serverless-wsgi", specifier = ">=3.0.5" },
+]
+
+[[package]]
+name = "serverless-wsgi"
+version = "3.0.5"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "werkzeug" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/3b/d5/d0618d243b2302fbd7d318641855edde5004ac8d3c45854fa5c4a84be102/serverless-wsgi-3.0.5.tar.gz", hash = "sha256:c098e1bcfefa9c905a66dd8247f9cc8cb505dd7f791faad1a063ee819cdf057b", size = 14657 }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/1c/85/75ed87faa4aeafd30a0d96a3655dfa783dcb3beaa20374d622a3bfe3b80f/serverless_wsgi-3.0.5-py2.py3-none-any.whl", hash = "sha256:981b4551686af6bbba49561b1975297b516f441fa88cb8c5c02a5230153b7c69", size = 10748 },
 ]
 
 [[package]]
