@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}News{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 mb-4">
+        <h2>Memecoin News</h2>
+        <hr class="border-primary">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        {% for post in posts %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.content }}</p>
+                {% if post.attachments %}
+                    {% for attachment in post.attachments %}
+                        {% if attachment.type == 'image' %}
+                            <img src="data:image/jpeg;base64,{{ attachment.data }}" class="img-fluid post-attachment" alt="Post attachment">
+                        {% else %}
+                            <video src="data:video/mp4;base64,{{ attachment.data }}" controls class="w-100 post-attachment"></video>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <div class="text-muted mt-2">
+                    <small>Posted by {{ post.author }} on {{ post.timestamp.strftime('%Y-%m-%d %H:%M') }}</small>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-info">No news posts yet.</div>
+        {% endfor %}
+    </div>
+
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Trending Topics</h5>
+                <div class="d-flex flex-column">
+                    <a href="#" class="btn btn-outline-primary mb-2">#DogeCoin</a>
+                    <a href="#" class="btn btn-outline-primary mb-2">#ShibaInu</a>
+                    <a href="#" class="btn btn-outline-primary mb-2">#PepeCoin</a>
+                    <a href="#" class="btn btn-outline-primary">#FlokiInu</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

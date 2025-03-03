@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block title %}Forum{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12 mb-4">
+        <h2>Memecoin Forum</h2>
+        <hr class="border-primary">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-8">
+        <div class="post-form">
+            <h4>Create New Post</h4>
+            <form method="POST" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="title" placeholder="Post Title" required>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" name="content" rows="4" placeholder="Write your post..." required></textarea>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="author" placeholder="Your Name (optional)">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Attachment (Image/Video)</label>
+                    <input type="file" class="form-control" name="file" accept="image/*,video/*">
+                    <div id="preview-container"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Post</button>
+            </form>
+        </div>
+
+        {% for post in posts %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.content }}</p>
+                {% if post.attachments %}
+                    {% for attachment in post.attachments %}
+                        {% if attachment.type == 'image' %}
+                            <img src="data:image/jpeg;base64,{{ attachment.data }}" class="img-fluid post-attachment" alt="Post attachment">
+                        {% else %}
+                            <video src="data:video/mp4;base64,{{ attachment.data }}" controls class="w-100 post-attachment"></video>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                <div class="text-muted mt-2">
+                    <small>Posted by {{ post.author }} on {{ post.timestamp.strftime('%Y-%m-%d %H:%M') }}</small>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-info">No forum posts yet. Be the first to post!</div>
+        {% endfor %}
+    </div>
+
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Forum Guidelines</h5>
+                <ul class="list-unstyled">
+                    <li><i class="bi bi-check-circle text-success"></i> Keep discussions respectful</li>
+                    <li><i class="bi bi-check-circle text-success"></i> No spam or advertising</li>
+                    <li><i class="bi bi-check-circle text-success"></i> Share meaningful content</li>
+                    <li><i class="bi bi-check-circle text-success"></i> Support fellow traders</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Popular Topics</h5>
+                <div class="d-flex flex-column">
+                    <a href="#" class="btn btn-outline-primary mb-2">#Trading</a>
+                    <a href="#" class="btn btn-outline-primary mb-2">#Analysis</a>
+                    <a href="#" class="btn btn-outline-primary mb-2">#News</a>
+                    <a href="#" class="btn btn-outline-primary">#Memes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

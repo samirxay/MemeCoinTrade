@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="hero-section">
+    <h1 class="display-4 mb-4">Welcome to Meme Traders</h1>
+    <p class="lead">Your community for memecoin discussions and crypto memes</p>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Latest News</h5>
+                <p class="card-text">Stay updated with the latest memecoin news and trends.</p>
+                <a href="{{ url_for('news') }}" class="btn btn-primary">Read News</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Community Forum</h5>
+                <p class="card-text">Join the discussion with fellow memecoin traders.</p>
+                <a href="{{ url_for('forum') }}" class="btn btn-primary">Visit Forum</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Featured Memecoins</h5>
+                <div class="row">
+                    <div class="col-md-3 text-center mb-3">
+                        <img src="https://images.unsplash.com/photo-1642465789831-a176eb4a1b14" alt="Memecoin" class="img-fluid rounded">
+                        <p class="mt-2">DOGE</p>
+                    </div>
+                    <div class="col-md-3 text-center mb-3">
+                        <img src="https://images.unsplash.com/photo-1614787296891-d1b2b1aced36" alt="Memecoin" class="img-fluid rounded">
+                        <p class="mt-2">SHIB</p>
+                    </div>
+                    <div class="col-md-3 text-center mb-3">
+                        <img src="https://images.unsplash.com/photo-1639729275509-1c5dc3748e77" alt="Memecoin" class="img-fluid rounded">
+                        <p class="mt-2">PEPE</p>
+                    </div>
+                    <div class="col-md-3 text-center mb-3">
+                        <img src="https://images.unsplash.com/photo-1643488072086-9d7318c0a04b" alt="Memecoin" class="img-fluid rounded">
+                        <p class="mt-2">FLOKI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
