@@ -1,7 +1,7 @@
 [build]
   command = "pip install flask flask-sqlalchemy gunicorn email-validator psycopg2-binary serverless-wsgi"
   functions = "netlify/functions"
-  publish = "static"
+  publish = "."
 
 [functions]
   directory = "netlify/functions"

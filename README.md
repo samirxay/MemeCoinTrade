@@ -26,17 +26,17 @@ A lightweight memecoin discussion forum with a dark/purple theme. Built with Fla
 2. Log in to [Netlify](https://netlify.com)
 3. Click "New site from Git"
 4. Choose your forked repository
-5. Deploy settings will be automatically configured by netlify.toml
+5. Leave the default settings as they are - the netlify.toml file handles all configuration
 6. Click "Deploy site"
 
-Note: Static files (CSS, JS, images) are served directly by Netlify for better performance.
+Note: The application uses Netlify Functions to run the Flask app, and static files (CSS, JS, images) are served directly by Netlify for better performance. All routing is handled automatically through the netlify.toml configuration.
 
 ## Development Setup
 1. Clone the repository
 2. Make sure you have Python 3.11+ installed
 3. Install dependencies:
    ```bash
-   pip install flask flask-sqlalchemy gunicorn email-validator psycopg2-binary
+   pip install flask flask-sqlalchemy gunicorn email-validator psycopg2-binary serverless-wsgi
    ```
 4. Run the application:
    ```bash
@@ -56,7 +56,7 @@ Note: Static files (CSS, JS, images) are served directly by Netlify for better p
 
 ## How It Works
 - **Replit Deployment**: Uses Python's Flask server directly, perfect for development and small to medium projects.
-- **Netlify Deployment**: Uses serverless functions to handle Flask routes, great for static hosting with dynamic capabilities.
+- **Netlify Deployment**: Uses serverless functions to handle Flask routes, with static files served directly by Netlify's CDN. The netlify.toml file handles all routing configuration automatically.
 
 ## Contributing
 1. Fork the repository
